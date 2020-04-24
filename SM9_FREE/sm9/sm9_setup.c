@@ -78,6 +78,7 @@ char cmasterkey[32] = {"\x00\x01\x30\xE7\x84\x59\xD7\x85\x45\xCB\x54\xC5\x87\xE0
 
 char sm9Xx[32] = {"\x3f\x23\xea\x58\xe5\x72\x0b\xdb\x84\x3c\x6c\xfa\x9c\x08\x67\x49\x47\xc5\xc8\x6e\x0d\xdd\x04\xed\xa9\x1d\x83\x54\x37\x7b\x69\x8b"};
 //================================
+static miracl g_mr_mip;
 
 int SM9_Init(unsigned int curve, BOOL TWIST_TYPE,unsigned int seclevel, unsigned char* t, unsigned char* q, unsigned char* a, unsigned char* b, unsigned char* n, unsigned char* xp1, unsigned char* yp1, unsigned char* xq1, unsigned char* xq2, unsigned char* yq1, unsigned char* yq2){
     miracl *mr_mip = mr_first_alloc();
@@ -88,7 +89,7 @@ int SM9_Init(unsigned int curve, BOOL TWIST_TYPE,unsigned int seclevel, unsigned
 #ifdef MR_OS_THREADS
     miracl *mr_mip = get_mip();
 #endif
-    mr_mip = mirsys(128,0);
+    mr_mip = mirsys(& g_mr_mip, 128,0);
     
     
     sm9q = mirvar(_MIPP_ 0);
