@@ -12,7 +12,6 @@
 const unsigned char hfc[2] = {0x01,0x02};
 
 
-static miracl g_mr_mip;
 
 
 miracl* GenMiracl(int secLevel){
@@ -22,7 +21,7 @@ miracl* GenMiracl(int secLevel){
 #ifdef MR_OS_THREADS
     miracl *mr_mip = get_mip();
 #endif
-    _MIPPO_ = mirsys(&g_mr_mip,128,0);
+    _MIPPO_ = mirsys(128,0);
     mr_mip->TWIST = TWIST;
     
     ecurve_init(_MIPP_ sm9a,sm9b,sm9q,MR_PROJECTIVE);

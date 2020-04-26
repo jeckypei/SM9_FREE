@@ -2,7 +2,7 @@
 #include <string.h>
 #include <time.h>
 
-
+#include "miracl/miracl.h"
 #include "sm9/sm9_algorithm.h"
 #include "sm9/print_out.h"
 

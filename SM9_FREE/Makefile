@@ -1,5 +1,5 @@
 SHELL = /bin/sh
-CC = gcc -std=c99
+CC = gcc 
 AR = ar
 OBJ = build
 
@@ -13,7 +13,7 @@ SRC = $(wildcard miracl/*.c) $(wildcard sm9/*.c )
 SOURCES=$(notdir $(SRC))
 SM9_OBJ = $(patsubst %.c,%.o, $(SOURCES))
 
-all : $(LIB_TARGET)
+all :  test 
 
 $(SM9_OBJ): $(SRC)
 	$(CC) $(CFLAG) $(INCLUDE_PATH) -c $(SRC)
@@ -21,10 +21,9 @@ $(SM9_OBJ): $(SRC)
 $(LIB_TARGET) : $(SM9_OBJ)
 	$(AR) cq $@ $^
 
-test : $(LIB_TARGET) SM9Test.o 
-SM9Test.o: SM9Test.c
+test: SM9Test.c
 	$(CC) -c SM9Test.c -o SM9Test.o 
-	$(CC) $(LIB_TARGET) SM9Test.o -o test 
+	$(CC)  SM9Test.o $(SM9_OBJ) -o test 
 	rm -f ./*.o
 
 clean:

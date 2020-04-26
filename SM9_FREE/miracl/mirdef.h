@@ -8,6 +8,7 @@
 
 
 //32bits 在32位环境下使用，并用mrmuldv.c32替换mrmuldv.c文件
+/*
 #define MR_GENERIC_AND_STATIC
 #define MR_GENERIC_MT
 #define MIRACL 32
@@ -21,11 +22,10 @@
 #define mr_unsign64 unsigned long long
 #define MR_NOASM
 #define MAXBASE ((mr_small)1<<(MIRACL-1))
-#define MR_STATIC 256
+*/
 
 //在64位环境下使用，使用gcc编译时，需要用mrmuldv.c64替换mrmuldv.c文件
 //使用vs编译时需要使用mrduldv.w64替换mrmuldv.c文件，并定义 “#define MR_NO_INTRINSICS”
-/*
 #define MR_GENERIC_MT
 #define MR_LITTLE_ENDIAN
 #define MIRACL 64
@@ -37,5 +37,5 @@
 #define MR_FLASH 52
 #define MAXBASE ((mr_small)1<<(MIRACL-1))
 #define MR_BITSINCHAR 8
-*/
+
 

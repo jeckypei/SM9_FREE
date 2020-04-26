@@ -5,7 +5,7 @@
 //  Created by 宋赓 on 2017/3/12.
 //  Copyright © 2017年 宋赓. All rights reserved.
 //
-#pragma once  
+//#pragma once  
 
 #ifndef sm9_algorithm_h
 #define sm9_algorithm_h
@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+typedef int BOOL;
 
 #define KDF_XOR 0
 #define KDF_SM4 1
@@ -139,7 +140,7 @@ typedef struct sm9_sender_st {
 //0 设置成功
 //2 G1生成元配置错误
 //3 G2生成元配置错误
-int SM9_Init(unsigned int curve, int TWIST_TYPE, unsigned int seclevel,unsigned char* t, unsigned char* q, unsigned char* a, unsigned char* b, unsigned char* n, unsigned char* xp1, unsigned char* yp1, unsigned char* xq1, unsigned char* xq2, unsigned char* yq1, unsigned char* yq2);
+int SM9_Init(unsigned int curve, BOOL TWIST_TYPE,unsigned int seclevel, unsigned char* t, unsigned char* q, unsigned char* a, unsigned char* b, unsigned char* n, unsigned char* xp1, unsigned char* yp1, unsigned char* xq1, unsigned char* xq2, unsigned char* yq1, unsigned char* yq2);
 
 //关闭SM9算法，清除缓存
 void SM9_Free();
